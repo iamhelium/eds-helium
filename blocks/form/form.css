@@ -1,11 +1,11 @@
 :root {
-    --background-color-primary:rgb(255, 204, 0);
+    --background-color-primary:rgb(246, 231, 211,1);
     --label-color: black;
     --border-color: #818a91;
     --form-error-color: #ff5f3f;
-    --button-primary-color: #5F8DDA;
-    --button-secondary-color: #666;
-    --button-primary-hover-color: #035fe6;
+    --button-primary-color: #943387;
+    --button-secondary-color: #943387;
+    --button-primary-hover-color: #943387;
     --form-font-size-m: 22px;
     --form-font-size-s: 18px;
     --form-font-size-xs: 16px;
