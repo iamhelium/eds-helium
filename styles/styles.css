@@ -256,20 +256,20 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-main .section.yellow{
+main .yellow{
   background-color: yellow;
 }
 
-main.section.red{
+main .red{
   background-color: red;
 
 }
 
-main.section.orange{
+main .orange{
   background-color: orange;
 
 }
 
-main.section.pink{
+main .pink{
   background-color: pink;
 }
