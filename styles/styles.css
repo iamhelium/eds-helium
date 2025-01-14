@@ -256,7 +256,7 @@ main .section.highlight {
   padding: 40px 0;
 }
 
-main.section.yellow{
+main .section.yellow{
   background-color: yellow;
 }
 
