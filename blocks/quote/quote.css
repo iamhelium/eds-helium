@@ -1,8 +1,8 @@
 .quote blockquote {
-    margin: 0 auto;
-    padding: 0 24px;
-    max-width: 900px;
-  }
+margin: 0 auto;
+padding: 0 24px;
+max-width: 900px;
+}
   
   @media (width >= 900px) {
     .quote blockquote {
