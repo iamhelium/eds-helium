@@ -17,14 +17,19 @@ export const defaultErrorMessages = {
 };
 
 export function getRouting() {
+  console.log("getRouting: Parsing the current host...");
   const regex = /(.*?)--(.*?)--(.*?)\.(hlx|aem)\.(.*)/;
   const match = window?.location?.host?.match(regex);
+  
   if (match) {
     const [, branch, site, org, , tier] = match;
+    console.log("getRouting: Extracted values:", { branch, site, org, tier });
     return {
       branch, site, org, tier,
     };
   }
+  
+  console.log("getRouting: No match found for the host.");
   return { };
 }
 
@@ -34,9 +39,11 @@ export const emailPattern = '([A-Za-z0-9][._]?)+[A-Za-z0-9]@[A-Za-z0-9]+(\.?[A-Z
 let submitBaseUrl = '';
 
 export function setSubmitBaseUrl(url) {
+  console.log("setSubmitBaseUrl: Setting submitBaseUrl to", url);
   submitBaseUrl = url;
 }
 
 export function getSubmitBaseUrl() {
+  console.log("getSubmitBaseUrl: Current submitBaseUrl is", submitBaseUrl);
   return submitBaseUrl;
 }
