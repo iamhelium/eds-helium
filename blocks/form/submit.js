@@ -80,6 +80,13 @@ async function prepareRequest(form) {
     'Content-Type': 'application/json',
     'x-adobe-routing': `tier=${tier},bucket=${branch}--${site}--${org}`,
   };
+  
+  // Add Authorization header with token
+  const token = await getToken(); // Make sure getToken() retrieves the token you need
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+
   const body = { data: payload };
   let url;
   let baseUrl = getSubmitBaseUrl();
@@ -117,6 +124,7 @@ async function submitDocBasedForm(form, captcha) {
     submitFailure(error, form);
   }
 }
+
 
 export async function handleSubmit(e, form, captcha) {
   e.preventDefault();
