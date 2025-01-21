@@ -73,20 +73,11 @@ function constructPayload(form) {
 
 async function prepareRequest(form) {
   const { payload } = constructPayload(form);
-  const {
-    branch, site, org, tier,
-  } = getRouting();
+  const { branch, site, org, tier } = getRouting();
   const headers = {
     'Content-Type': 'application/json',
     'x-adobe-routing': `tier=${tier},bucket=${branch}--${site}--${org}`,
   };
-  
-  // Add Authorization header with token
-  const token = await getToken(); // Make sure getToken() retrieves the token you need
-  if (token) {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-
   const body = { data: payload };
   let url;
   let baseUrl = getSubmitBaseUrl();
@@ -94,19 +85,19 @@ async function prepareRequest(form) {
     baseUrl = 'https://forms.adobe.com/adobe/forms/af/submit/';
     headers['x-adobe-routing'] = `tier=${tier},bucket=${branch}--${site}--${org}`;
     url = baseUrl + btoa(form.dataset.action);
-
   } else {
     url = form.dataset.action;
   }
+  // Add the access token to the headers
+  const accessToken = 'ya29.a0ARW5m77uOV56_uZm7I7QQKSi0Ko7bwkVF_81Fsf2UvYj8BOgLLq3FzEbIGlk3Y-Gs7U2yIdPoN8GNc4Y65MrAiW3N9cBUsHE3XAWTM6rxeTD0LcVqZ8WSl9iqzBCg_a8lB4V-k3adjUikc-j7LrS5IEzuH5ClZmkgy3-C1wuaCgYKAfcSARISFQHGX2MiprAg2toDFcp6hc_KT-4nVQ0175'; 
+  headers['Authorization'] = `Bearer ${accessToken}`;
   return { headers, body, url };
-}
-
-async function submitDocBasedForm(form, captcha) {
+ }
+ async function submitDocBasedForm(form, captcha) {
   try {
     const { headers, body, url } = await prepareRequest(form, captcha);
-    let token = null;
     if (captcha) {
-      token = await captcha.getToken();
+      const token = await captcha.getToken();
       body.data['g-recaptcha-response'] = token;
     }
     const response = await fetch(url, {
@@ -123,8 +114,7 @@ async function submitDocBasedForm(form, captcha) {
   } catch (error) {
     submitFailure(error, form);
   }
-}
-
+ }
 
 export async function handleSubmit(e, form, captcha) {
   e.preventDefault();
