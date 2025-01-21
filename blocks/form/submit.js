@@ -87,9 +87,7 @@ async function prepareRequest(form) {
     baseUrl = 'https://forms.adobe.com/adobe/forms/af/submit/';
     headers['x-adobe-routing'] = `tier=${tier},bucket=${branch}--${site}--${org}`;
     url = baseUrl + btoa(form.dataset.action);
-    console.log(form.dataset.action);
-    console.log(url);
-    console.log(btoa(form.dataset.action));
+
   } else {
     url = form.dataset.action;
   }
