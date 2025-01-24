@@ -33,6 +33,7 @@
     overflow: unset;
     white-space: unset;
     transition: background-color 0.2s;
+    background-color: #de5050;
   }
   
   .tabs .tabs-list button p {
