@@ -1,0 +1,52 @@
+/* Main container styling */
+.mycontent-block {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 16px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styling */
+.mycontent-block table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+.mycontent-block th, 
+.mycontent-block td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.mycontent-block th {
+    background-color: #0073e6;
+    color: white;
+    font-weight: bold;
+}
+
+.mycontent-block tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect */
+.mycontent-block tr:hover {
+    background-color: #d8e8ff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .mycontent-block {
+        padding: 10px;
+    }
+
+    .mycontent-block th, 
+    .mycontent-block td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
