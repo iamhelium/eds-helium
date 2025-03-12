@@ -1,0 +1,12 @@
+{
+  "project": "eds helium",
+  "host": "https://main--eds-helium--iamhelium.aem.page/",
+  "plugins": [
+    {
+      "id": "library",
+      "title": "Library",
+      "environments": ["edit"],
+      "url": "/tools/sidekick/library.html"
+    }
+  ]
+}
