@@ -10,7 +10,7 @@ export default async function decorate(block) {
   const footerMeta = getMetadata('footer');
 
   //  Check if metadata exists
-  //console.log(`Footer metadata: ${footerMeta ? footerMeta : 'No metadata found'}`);
+  console.log(`Footer metadata: ${footerMeta ? footerMeta : 'No metadata found'}`);
 
   //  the footer path
   const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
